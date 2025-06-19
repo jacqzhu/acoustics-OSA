@@ -6,10 +6,10 @@ from praatio import tgio
 
 vowel_labels = {"see", "soo", "sahh", "so", "set"}
 
-audio_folder = r"R:\Speech and Craniofacial analysis\Collected Data\UMich Data\April_16_2025\Jacqueline\audio"
-annotation_folder = r"R:\Speech and Craniofacial analysis\Collected Data\UMich Data\April_16_2025\Jacqueline\annotation"
-
-output_folder = r"R:\Speech and Craniofacial analysis\Collected Data\UMich Data\April_16_2025\Jacqueline\segment"
+# update to full location
+audio_folder = r"R:\Speech and Craniofacial analysis\"
+annotation_folder = r"R:\Speech and Craniofacial analysis\"
+output_folder = r"R:\Speech and Craniofacial analysis\"
 
 os.makedirs(output_folder, exist_ok=True)
 
@@ -25,16 +25,13 @@ for filename_tg in tqdm(os.listdir(annotation_folder)):
             waveform = waveform.mean(dim=0)  # convert to mono
         waveform = waveform.squeeze().numpy()
 
-        # open the textgrids
         filename_tg = tgio.openTextgrid(tg_path)
-        
         tg = tgio.openTextgrid(tg_path)
         tiername = tg.tierNameList[0]
         tier = tg.tierDict[tiername]
 
         i = 0
         for start, end, label in tier.entryList:
-            # label = /see/-f /soo/-f /sahh/-f /set/-f /so/-f
             label_clean = label.strip().lower().replace("/", "").replace("-f", "")
             
             if label_clean in vowel_labels:
