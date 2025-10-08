@@ -1,14 +1,12 @@
-# Acoustic-Processing
-Signal processing tools for speech segmentation and acoustic feature extraction
+# Acoustic Features Analysis for Obstructive Sleep Apnea
+This repository contains code and analyses for acoustic feature data collected from April 16 to May 14, 2025. 
+The project focuses on preprocessing of acoustic features for machine learning applications.
 
-## 📁 Contents
-- `textgrid_segmentation.py`: Extracts vowel segments from TextGrids using Parselmouth
-- `feature_extraction.ipynb`: Computes MFCCs, formants, pitch, and intensity using Librosa and Parselmouth
-
-## 🛠 Dependencies
+Tools:
 - Python
+- PyTorch
+- scikit-learn
 - Parselmouth
 - Librosa
-- PyTorch
 - NumPy
 - Jupyter
